@@ -11,38 +11,35 @@ const Home = () => {
   //전체 유저 정보 가져오기
   const getUsers = async () => {
     const result = await axios.get("http://localhost:8080/users");
-    console.log(result);
+    setUsers(result.data);
   };
 
   return (
     <div className="container">
-      <table className="table  border shadow my-4 table-hover">
+      <table className="table  border shadow text-center  my-4 table-hover">
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th scope="col">이름</th>
+            <th scope="col">유저네임</th>
+            <th scope="col">이메일</th>
+            <th scope="col">액션</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td colSpan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
+          {users.map((user, index) => (
+            <tr key={index}>
+              <th scope="row">{index + 1}</th>
+              <td>{user.name}</td>
+              <td>{user.username}</td>
+              <td>{user.email}</td>
+              <td>
+                <button className="btn btn-outline-secondary mx-2">보기</button>
+                <button className="btn btn-outline-warning mx-2">수정</button>
+                <button className="btn btn-outline-danger mx-2">삭제</button>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
