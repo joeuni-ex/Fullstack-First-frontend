@@ -1,6 +1,19 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 
 const Home = () => {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    getUsers();
+  }, []); //한 번만 실행
+
+  //전체 유저 정보 가져오기
+  const getUsers = async () => {
+    const result = await axios.get("http://localhost:8080/users");
+    console.log(result);
+  };
+
   return (
     <div className="container">
       <table className="table  border shadow my-4 table-hover">
