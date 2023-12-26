@@ -1,9 +1,12 @@
 import "./App.css";
+import Navbar from "./layout/Navbar";
 
 function App() {
   return (
     <>
-      <div className="App">앱입니다</div>
+      <div className="App">
+        <Navbar />
+      </div>
     </>
   );
 }
