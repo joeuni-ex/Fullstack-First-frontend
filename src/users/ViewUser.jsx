@@ -36,13 +36,13 @@ const ViewUser = () => {
               유저ID :
               <ul className="list-group list-group-flush">
                 <li className="list-group-item">
-                  <b>이름 : {user.name} </b>
+                  <b>이름 : {name} </b>
                 </li>
                 <li className="list-group-item">
-                  <b>유저네임 : {user.username}</b>
+                  <b>유저네임 : {username}</b>
                 </li>
                 <li className="list-group-item">
-                  <b>이메일 : {user.email} </b>
+                  <b>이메일 : {email} </b>
                 </li>
               </ul>
             </div>
