@@ -21,6 +21,11 @@ const AddUser = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+    if (name === "" || username === "" || email === "") {
+      alert("내용을 입력해 주세요.");
+      return; //이름, 유저네임, 이메일 공백 시 리턴
+    }
+
     await axios.post("http://localhost:8080/users", user);
     navigate("/"); //유저 추가 후 홈페이지로 이동
   };
