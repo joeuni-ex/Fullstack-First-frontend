@@ -21,7 +21,7 @@ const ViewUser = () => {
 
   // 유저 아이디로 데이터 가져오기
   const loadUser = async () => {
-    const result = await axios.get(`http://localhost:8080/users/${id}`);
+    const result = await axios.get(`${process.env.VITE_USER_API}/users/${id}`);
     setUser(result.data);
   };
 
