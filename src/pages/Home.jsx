@@ -11,14 +11,14 @@ const Home = () => {
 
   //전체 유저 정보 가져오기
   const getUsers = async () => {
-    const result = await axios.get(`${process.env.USER_API}/users`);
+    const result = await axios.get(`${import.meta.env.VITE_USER_API}/users`);
     setUsers(result.data);
   };
 
   //유저 삭제하기
   const deleteUser = async (id) => {
     if (confirm("정말로 삭제할까요?")) {
-      await axios.delete(`${process.env.USER_API}/users/${id}`);
+      await axios.delete(`${import.meta.env.VITE_USER_API}/users/${id}`);
       getUsers(); //삭제 후 유저 정보 다시 가져오기
     }
   };
