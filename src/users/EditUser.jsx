@@ -40,9 +40,10 @@ const EditUser = () => {
       return; //이름, 유저네임, 이메일 공백 시 리턴
     }
 
-    await axios.post("http://localhost:8080/users", user);
-    navigate("/"); //유저 추가 후 홈페이지로 이동
+    await axios.put(`http://localhost:8080/users/${id}`, user);
+    navigate("/"); //유저 수정 후 홈페이지로 이동
   };
+
   return (
     <div className="container">
       <div className="row">
@@ -96,7 +97,7 @@ const EditUser = () => {
                 type="submit"
                 className="btn btn-outline-primary px-3 mx-2"
               >
-                가입
+                수정
               </button>
               <Link
                 to="/"
