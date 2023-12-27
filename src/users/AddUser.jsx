@@ -26,7 +26,7 @@ const AddUser = () => {
       return; //이름, 유저네임, 이메일 공백 시 리턴
     }
 
-    await axios.post(`${process.env.VITE_USER_API}/users`, user);
+    await axios.post(`${process.env.USER_API}/users`, user);
     navigate("/"); //유저 추가 후 홈페이지로 이동
   };
   return (

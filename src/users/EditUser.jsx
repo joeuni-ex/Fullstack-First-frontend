@@ -22,7 +22,7 @@ const EditUser = () => {
 
   // 유저 아이디로 데이터 가져오기
   const loadUser = async () => {
-    const result = await axios.get(`${process.env.VITE_USER_API}/users/${id}`);
+    const result = await axios.get(`${process.env.USER_API}/users/${id}`);
     setUser(result.data);
   };
 
@@ -40,7 +40,7 @@ const EditUser = () => {
       return; //이름, 유저네임, 이메일 공백 시 리턴
     }
 
-    await axios.put(`${process.env.VITE_USER_API}/users/${id}`, user);
+    await axios.put(`${process.env.USER_API}/users/${id}`, user);
     navigate("/"); //유저 수정 후 홈페이지로 이동
   };
 
